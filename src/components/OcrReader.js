@@ -110,7 +110,7 @@ const OcrReader = () => {
         }
       </div>
       <div className="status">
-        {imgList && ocrData && <img src={imgList[0]} />}
+        {imgList && ocrData && <img alt="previewImg" src={imgList[0]} />}
         {ocrData && <TextOCR readText={ocrData}/>}
         {ocrState && ocrState !== "Completed" && <p>{ocrState}</p>}
       </div>
