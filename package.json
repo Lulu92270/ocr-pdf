@@ -3,7 +3,6 @@
     "npm": ">=7.0.0",
     "node": "^14.15.0"
   },
-  "proxy": "http://localhost:5000",
   "name": "ocr-pdf",
   "version": "0.1.0",
   "private": true,
