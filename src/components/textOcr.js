@@ -4,7 +4,7 @@ const TextOCR = ({readText}) => {
 
   return (
     <div>
-      <div>Recognized text:</div>
+      <div>Recognized ttext:</div>
       <div>
         <textarea
           rows="30"

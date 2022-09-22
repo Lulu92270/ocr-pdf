@@ -68,12 +68,20 @@ const OcrReader = () => {
     for (let i = 0; i < pdf.numPages; i++) {
       const page = await pdf.getPage(i + 1);
       const viewport = page.getViewport({ scale: 1 });
-      const context = canvas.getContext("2d", { alpha: false });
 
-      canvas.height = viewport.height || viewport.viewBox[3]; /* viewport.height is NaN */
-      canvas.width = viewport.width || viewport.viewBox[2];
+      const pixelRatio = window.devicePixelRatio * 2
+      const pdfOriginalWidth = page.getViewport({ scale: 1 }).width;
+      const viewpointHeight = viewport.height;
+
+      canvas.height = viewpointHeight * pixelRatio;
+      canvas.width = pdfOriginalWidth * pixelRatio;
+      canvas.getContext('2d').scale(pixelRatio, pixelRatio);
+      const renderContext = {
+        canvasContext: canvas.getContext('2d'),
+        viewport: viewport
+      };
       
-      await page.render({ canvasContext: context, viewport: viewport }).promise;
+      await page.render(renderContext).promise;
 
       images.push(canvas.toDataURL());
     }
