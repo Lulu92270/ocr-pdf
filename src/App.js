@@ -1,4 +1,5 @@
-import OcrReader from "./components/OcrReader"
+import OcrReader from "./components/ocrReader"
+import './index.css';
 
 const App = () => {
 

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { createWorker } from "tesseract.js"
-import TextOCR from "./TextOCR"
+import TextOCR from "./textOcr"
 
 const OcrReader = () => {
 
